@@ -1,27 +1,42 @@
+#include <stddef.h>
 #include "mystring.h"
 
-// puts, strchr, strlen, strcpy, strncpy, strcat, strncat, fgets, strdup, getline
+// puts, strlen, strncat, fgets, strdup, getline
 char *strcpy( char *destptr, const char *srcptr )
 {
-    int i = 0;
-    while ((destptr[i] = srcptr[i]) != '\0') i++;
+    int index = 0;
+    while ((destptr[index] = srcptr[index]) != '\0') index++;
     return destptr;
 }
 
 char * strncpy( char * destptr, const char * srcptr, size_t num )
 {
-    int i = 0;
-    while ((destptr[i] = srcptr[i]) != '\0' && --num != 0) i++;
+    int index = 0;
+    while ((destptr[index] = srcptr[index]) != '\0' && --num != 0) index++;
     if (num == 0)
-        destptr[i+1] = '\0';
+        destptr[index+1] = '\0';
     return destptr;
 }
 
 char * strcat( char * destptr, const char * srcptr )
 {
-    int i = 0;
-    while (destptr[i] != '\0') i++;
-    int j = 0;
-    while((destptr[i+j] = srcptr[j]) != '\0') j++;
+    int destindex = 0;
+    while (destptr[destindex] != '\0') destindex++;
+    int srcindex = 0;
+    while((destptr[destindex+srcindex] = srcptr[srcindex]) != '\0') srcindex++;
     return destptr;
 }
+
+const char * strchr( const char * string, int symbol )
+{
+    char ch = 0;
+    while((ch = *string) != '\0')
+    {
+        if (ch == symbol)
+            return string;
+        string++;
+    }
+    return NULL;
+}
+
+
