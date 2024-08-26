@@ -31,5 +31,6 @@ char* strdup (const char *src);
 int myputs(const char *str);
 char *myfgets(char *str, int num, FILE *stream);
 int getline(char str[], int lim);
+const char * strstr( const char * string1, const char * string2 );
 
 #endif

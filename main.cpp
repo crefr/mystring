@@ -6,7 +6,8 @@ const int MAXLINE = 100;
 
 int main()
 {
-    char s[MAXLINE] = "";
-    printf("%d %s\n", getline(s, MAXLINE), s);
+    const char *str = "I love cats :D\n";
+    const char *str2 = ":D";
+    printf("%s", strstr(str, str2));
     return 0;
 }

@@ -105,3 +105,21 @@ int getline(char str[], int lim)
     str[index] = '\0';
     return index;
 }
+
+const char * strstr( const char * string1, const char * string2 )
+{
+    size_t index1 = 0;
+    size_t index2 = 0;
+    while (string1[index1] != '\0')
+    {
+    index2 = 0;
+    while (string1[index1 + index2] == string2[index2])
+    {
+        if (string2[index2 + 1] == '\0')
+            return string1 + index1;
+        index2++;
+    }
+    index1++;
+    }
+    return NULL;
+}
