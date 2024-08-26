@@ -2,13 +2,14 @@
 
 #include "mystring.h"
 
-const int MAXLINE = 100;
+const int MAXLINE = 5;
 
 int main()
 {
-    char s1[] = "Hello";
-    //char s2[] = "World";
-
-    printf("%p %p\n", strdup(s1), s1);
+    char s[MAXLINE] = "";
+    printf("HI\n");
+    myfgets(s, MAXLINE, stdin);
+    printf("%s", s);
+    printf("%s", myfgets(s, MAXLINE, stdin));
     return 0;
 }

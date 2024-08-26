@@ -1,10 +1,11 @@
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "mystring.h"
 
 
-// puts, fgets, getline
+// fgets, getline
 char *strcpy( char *destptr, const char *srcptr )
 {
     int index = 0;
@@ -68,4 +69,28 @@ char* strdup (const char *src)
     while((pointer[index] = src[index]) != '\0')
         index++;
     return pointer;
+}
+
+int myputs(const char *str)
+{
+    char ch = *str;
+    while(ch != '\0')
+        putchar(ch);
+    putchar('\n');
+    return '\n';
+}
+
+char *myfgets(char *str, int num, FILE *stream)
+{
+    int ch = 0;
+    char * startptr = str;
+    while(--num != 0 && (ch = getc(stream)) != EOF && ch != '\n')
+        *(str++) = (char) ch;
+    if (ch == '\n')
+        *(str++) = '\n';
+    *str = '\0';
+
+    if (ch == EOF)
+        return NULL;
+    return startptr;
 }

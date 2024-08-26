@@ -28,5 +28,7 @@ const char * strchr( const char * string, int symbol );
 char * strncat( char * destptr, char * srcptr, size_t num );
 size_t strlen( const char * string );
 char* strdup (const char *src);
+int myputs(const char *str);
+char *myfgets(char *str, int num, FILE *stream);
 
 #endif
