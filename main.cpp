@@ -2,14 +2,11 @@
 
 #include "mystring.h"
 
-const int MAXLINE = 5;
+const int MAXLINE = 100;
 
 int main()
 {
     char s[MAXLINE] = "";
-    printf("HI\n");
-    myfgets(s, MAXLINE, stdin);
-    printf("%s", s);
-    printf("%s", myfgets(s, MAXLINE, stdin));
+    printf("%d %s\n", getline(s, MAXLINE), s);
     return 0;
 }

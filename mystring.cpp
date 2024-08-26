@@ -5,7 +5,6 @@
 #include "mystring.h"
 
 
-// fgets, getline
 char *strcpy( char *destptr, const char *srcptr )
 {
     int index = 0;
@@ -93,4 +92,16 @@ char *myfgets(char *str, int num, FILE *stream)
     if (ch == EOF)
         return NULL;
     return startptr;
+}
+
+int getline(char str[], int lim)
+{
+    int ch;
+    int index;
+    for(index = 0; index < lim-1 && (ch = getchar()) != EOF && ch != '\n'; index++)
+        str[index] = (char) ch;
+    if (ch == '\n')
+        str[index++] = (char) ch;
+    str[index] = '\0';
+    return index;
 }

@@ -30,5 +30,6 @@ size_t strlen( const char * string );
 char* strdup (const char *src);
 int myputs(const char *str);
 char *myfgets(char *str, int num, FILE *stream);
+int getline(char str[], int lim);
 
 #endif
