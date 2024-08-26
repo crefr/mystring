@@ -108,7 +108,9 @@ int getline(char str[], int lim)
 
 const char * strstr( const char * string1, const char * string2 )
 {
+        // индекс текущего символа поиска в string1
     size_t index1 = 0;
+        // индекс текущего символа в string2
     size_t index2 = 0;
     while (string1[index1] != '\0')
     {
