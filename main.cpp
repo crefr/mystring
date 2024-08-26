@@ -7,8 +7,8 @@ const int MAXLINE = 100;
 int main()
 {
     char s1[] = "Hello";
-    char s2[] = "World";
+    //char s2[] = "World";
 
-    printf("%lld", strlen("bebra"));
+    printf("%p %p\n", strdup(s1), s1);
     return 0;
 }

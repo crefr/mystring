@@ -27,5 +27,6 @@ char * strcat( char * destptr, const char * srcptr );
 const char * strchr( const char * string, int symbol );
 char * strncat( char * destptr, char * srcptr, size_t num );
 size_t strlen( const char * string );
+char* strdup (const char *src);
 
 #endif

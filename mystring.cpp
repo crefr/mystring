@@ -1,7 +1,10 @@
 #include <stddef.h>
+#include <stdlib.h>
+
 #include "mystring.h"
 
-// puts, strlen, fgets, strdup, getline
+
+// puts, fgets, getline
 char *strcpy( char *destptr, const char *srcptr )
 {
     int index = 0;
@@ -56,4 +59,13 @@ size_t strlen( const char * string )
     size_t len = 0;
     while (*(string++) != '\0') len++;
     return len;
+}
+
+char* strdup (const char *src)
+{
+    char *pointer = (char *) calloc(sizeof(char), strlen(src) + 1);
+    int index = 0;
+    while((pointer[index] = src[index]) != '\0')
+        index++;
+    return pointer;
 }
