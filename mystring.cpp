@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include "mystring.h"
 
-// puts, strlen, strncat, fgets, strdup, getline
+// puts, strlen, fgets, strdup, getline
 char *strcpy( char *destptr, const char *srcptr )
 {
     int index = 0;
@@ -27,9 +27,21 @@ char * strcat( char * destptr, const char * srcptr )
     return destptr;
 }
 
+char * strncat( char * destptr, char * srcptr, size_t num )
+{
+    int destindex = 0;
+    while (destptr[destindex] != '\0') destindex++;
+    int srcindex = 0;
+    while((destptr[destindex+srcindex] = srcptr[srcindex]) != '\0' && --num != 0) srcindex++;
+    if (num == 0)
+        destptr[destindex + srcindex + 1] = '\0';
+    return destptr;
+}
+
+
 const char * strchr( const char * string, int symbol )
 {
-    char ch = 0;
+    int ch = 0;
     while((ch = *string) != '\0')
     {
         if (ch == symbol)
@@ -38,5 +50,4 @@ const char * strchr( const char * string, int symbol )
     }
     return NULL;
 }
-
 

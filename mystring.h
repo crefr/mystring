@@ -25,5 +25,6 @@ char *strcpy( char *destptr, const char *srcptr );
 char * strncpy( char * destptr, const char * srcptr, size_t num );
 char * strcat( char * destptr, const char * srcptr );
 const char * strchr( const char * string, int symbol );
+char * strncat( char * destptr, char * srcptr, size_t num );
 
 #endif
