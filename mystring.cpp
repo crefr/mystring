@@ -51,3 +51,9 @@ const char * strchr( const char * string, int symbol )
     return NULL;
 }
 
+size_t strlen( const char * string )
+{
+    size_t len = 0;
+    while (*(string++) != '\0') len++;
+    return len;
+}

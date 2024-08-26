@@ -9,6 +9,6 @@ int main()
     char s1[] = "Hello";
     char s2[] = "World";
 
-    printf("%s", strncat(s1, s2, 3));
+    printf("%lld", strlen("bebra"));
     return 0;
 }
