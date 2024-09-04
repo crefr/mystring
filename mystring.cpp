@@ -114,14 +114,55 @@ const char * strstr( const char * string1, const char * string2 )
     size_t index2 = 0;
     while (string1[index1] != '\0')
     {
-    index2 = 0;
-    while (string1[index1 + index2] == string2[index2])
-    {
-        if (string2[index2 + 1] == '\0')
-            return string1 + index1;
-        index2++;
+        index2 = 0;
+        while (string1[index1 + index2] == string2[index2])
+        {
+            if (string2[index2 + 1] == '\0')
+                return string1 + index1;
+            index2++;
+        }
+        index1++;
     }
-    index1++;
+    return NULL;
+}
+
+unsigned int * prefixFunction(const char * str, size_t len)
+{
+    unsigned int *pref = (unsigned int *) calloc(len, sizeof(unsigned int));
+    pref[0] = 0;
+    for (size_t index = 1; index < len; index++)
+    {
+        unsigned int j = pref[index - 1];
+        while (j > 0 && str[index] != str[j])
+            j = pref[j - 1];
+        if (str[index] == str[j])
+            j++;
+        pref[index] = j;
+    }
+    return pref;
+}
+
+/**
+ * @brief алгоритм Кнута-Морриса-Пратта
+ *
+ * @param text [IN]  строка, в которой ищут
+ * @param sample [IN]  подстрока, которую ищут
+ * @return const char* указатель на найденную подстроку, NULL, если не найдена
+ */
+const char * strstr_kmp( const char * text, const char * sample )
+{
+    size_t samplelen = strlen(sample);
+    size_t textlen = strlen(text);
+    unsigned int * prefix = prefixFunction(sample, samplelen);
+    size_t j = 0;
+    for (size_t index = 0; index < textlen; index++)
+    {
+        while (sample[j] != text[index] && j > 0)
+            j = prefix[j];
+        if (sample[j] == text[index])
+            j++;
+        if (j == samplelen)
+            return text + (index - samplelen + 1);
     }
     return NULL;
 }
